@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starbucks</title>
+    <link rel="icon" href="Image/logo.png" type="image/x-icon">
+ 
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="bg-white-800 shadow shadow-gray-800 ">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button
+              type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-black-800 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <!-- <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open m</span> -->
+              <!--
+                Icon when menu is closed.
+    
+                Menu open: "hidden", Menu closed: "block"
+              -->
+              <svg
+                class="block h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+              <!--
+                Icon when menu is open.
+    
+                Menu open: "block", Menu closed: "hidden"
+              -->
+              <svg
+                class="hidden h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+          >
+            <div class="flex flex-shrink-0 items-center">
+              <img
+                class="h-12 w-14"
+                src="Image/logo.png"
+                alt="Your Company"
+              />
+            </div>
+            <div class="hidden sm:ml-6 sm:block">
+              <div class="flex space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a
+                  href="#"
+                  class=" text-black  hover:bg-gray-700 hover:text-white  rounded-md px-4 py-2 text-lg font-medium"
+                  aria-current="page"
+                  >Home</a
+                >
+                <a
+                  href="#"
+                  class="text-black-300 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-lg font-medium"
+                  >Gift</a
+                >
+                <a
+                  href="#"
+                  class="text-black-300 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-lg font-medium"
+                  >Order</a
+                >
+                <a
+                  href="#"
+                  class="text-black-300 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-lg font-medium"
+                  >pay</a
+                >
+                <a
+                href="#"
+                class="text-black-300 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-lg font-medium"
+                >Store</a
+              >
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+          >
+            <!-- <button
+              type="button"
+              class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+            >
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">View notifications</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                />
+              </svg>
+            </button> -->
+
+            <!-- Profile dropdown -->
+            <div class="relative ml-3">
+              <div>
+                <button
+                  type="button"
+                  class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  id="user-menu-button"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  <span class="absolute -inset-1.5"></span>
+                  <span class="sr-only">Open user menu</span>
+                  <img
+                    class="h-8 w-8 rounded-full"
+                    src="Image/IMG_6597.jpg"
+                    alt=""
+                  />
+                </button>
+              </div>
+
+              <!--
+                Dropdown menu, show/hide based on menu state.
+    
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+              -->
+              <!-- <div
+                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="user-menu-button"
+                tabindex="-1"
+              >
+                <!-- Active: "bg-gray-100", Not Active: "" -->
+                <!-- <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="user-menu-item-0"
+                  >Your Profile</a
+                > -->
+                <!-- <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="user-menu-item-1"
+                  >Settings</a
+                > -->
+                <!-- <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700"
+                  role="menuitem"
+                  tabindex="-1"
+                  id="user-menu-item-2"
+                  >Sign out</a
+                > -->
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="sm:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a
+            href="#"
+            class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+            aria-current="page"
+            >Dashboard</a
+          >
+          <a
+            href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+            >Team</a
+          >
+          <a
+            href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+            >Projects</a
+          >
+          <a
+            href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+            >Calendar</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div class="flex items-center justify-between bg-green-950 p-14">
+<h1 class="text-white text-2xl">Blossoms of Spring: Nature's Awakening Symphony</h1>
+<div>
+  <a href="https://www.starbucks.in/rewards" class="bg-green-950 rounded-2xl text-base border-solid border-white border-2 font-bold text-white px-3 py-2">Know More</a>
+</div>
+</div>
+<div class="bg-orange-100 p-10 pb-20">
+<div class="flex items-center justify-between px-8">
+<h1 class="text-green-950 text-2xl font-bold ">Barista Recommends</h1>
+<div>
+  <a href="" class="text-green-900">View More</a>
+</div>
+</div>
+<div class="flex items-center mt-10 ">
+<div class="flex justify-around w-4/12 shadow-gray-900 shadow-lg rounded-xl p-4 mr-5 bg-white">
+  <div>
+<img class="w-26 h-24 rounded-lg" src="Image/1.webp" alt="" >
+<br><h2>₹ 367.50</h2>
+</div>
+<div class="ml-3">
+<svg width="24" height="16"  viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="17" height="14" style="margin-right: 20px;" rx="1.5" stroke="#00754A"/>
+  <circle cx="8" cy="8" r="4" fill="#00754A"/>
+  </svg>
+  <h3 class=""><a href="">Strawerry Milkshake</a></h3>
+  <p class="text-gray-500 text-xs ">TALL(Tall Strawberry Milkshake) .PER SERVE (354ml) - 569 Kcal
+  </p>
+  <div class="mt-14 text-end">
+  <a class="bg-green-900 text-white px-3 py-2 rounded-xl" href="">ADD Item</a>
+</div>
+</div>
+</div>
+<div class="flex justify-around w-4/12 shadow-gray-900 shadow-lg rounded-xl p-4 ml-4 bg-white">
+  <div>
+<img class="w-26 h-24 rounded-lg" src="Image/2.webp" alt="" >
+<br><h2>₹ 367.50</h2>
+</div>
+<div class="ml-3">
+<svg width="24" height="16"  viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="17" height="14" style="margin-right: 20px;" rx="1.5" stroke="#00754A"/>
+  <circle cx="8" cy="8" r="4" fill="#00754A"/>
+  </svg>
+  <h3><a href="">Strawerry Milkshake</a> </h3>
+  <p class="text-gray-500 text-xs ">TALL(Tall Strawberry Milkshake) .PER SERVE (354ml) - 569 Kcal
+  </p>
+  <div class="mt-14 text-end">
+  <a class="bg-green-900 text-white px-3 py-2 rounded-xl" href="">ADD Item</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between bg-green-800 w-4/5 ml-36 p-6 mt-20 rounded-xl" >
+<div>
+  <img class="w-28 rounded-2xl" src="Image/Bonus_Stars_40471c3d22.png" alt="">
+</div>
+<div class="text-white">
+  <h3>Special Offer</h3>
+  <h1>DOUBLE STARS</h1>
+  <P>Double Your Star On First 3 order placed through the app. Order from the wide menu range and enjoy!</P>
+
+<p>Starting From</p>
+<p>Rs.250</p>
+</div>
+<div class="mt-36">
+  <a class="bg-white px-8 py-3 rounded-lg " href="">Order Now</a>
+</div>
+</div>
+
+
+<h1 class="text-2xl font-bold text-green-900 mt-10 mb-7 ml-32">Handcrafted Curations</h1>
+<div class="flex items-center justify-between px-28">
+<div>
+  <img class="w-28 rounded-full hover:border-green-800 hover:border-solid hover:border-2" src="Image/Bestseller.webp" alt="">
+  <p class="ml-7">Bestseller</p>
+</div>
+<div>
+  <img class="w-28 rounded-full hover:border-green-800 hover:border-solid hover:border-2" src="Image/Drinks.webp" alt="">
+  <p class="ml-7">Drinks</p>
+</div>
+<div>
+  <img class="w-28 rounded-full hover:border-green-800 hover:border-solid hover:border-2" src="Image/Food.webp" alt="">
+  <p class="ml-7">Food</p>
+</div>
+<div>
+  <img class="w-28 rounded-full hover:border-green-800 hover:border-solid hover:border-2" src="Image/Merchandise.webp" alt="">
+  <p class="ml-5">Merchandise</p>
+</div>
+<div>
+  <img class="w-28 rounded-full hover:border-green-800 hover:border-solid hover:border-2" src="Image/CoffeeAtHome.webp" alt="">
+  <p class="ml-6">Coffee At Home</p>
+</div>
+<div>
+  <img class="w-28 rounded-full hover:border-green-800 hover:border-solid hover:border-2" src="Image/ReadyToEat.webp" alt="">
+  <p class="ml-6">Ready to Eat</p>
+</div>
+</div>
+
+<h1 class="text-2xl font-bold text-green-900 mt-10 mb-7 ml-28">Latest Offerings</h1>
+
+
+
+<div class="flex  px-24">
+<div class="w-4/10 shadow-gray-900 shadow-lg  rounded-lg   ">
+  <div class="h-48">
+  <img class="rounded-t-lg  h-full w-full  " src="Image/114038.webp" alt="">
+</div>
+  <div class="ml-3 mt-3 ">
+  <svg width="16" height="16" style="margin-left: 10p;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="0.5" width="15" height="15" style="margin-left: 10px;" rx="1.5" stroke="#00754A"/>
+    <circle cx="8" cy="8" r="4" style="margin-left: 10px; " fill="#00754A"/>
+    </svg>
+  </div>
+    <h2 class="font-bold mt-3 p-2 ">Strawberry Acai Lemonade</h2>
+    <p class="text-xs text-gray-400 p-2">TALL(354 ML) .88 kcal</p>
+    <p class="text-xs text-gray-400 p-2 " >Sweet strawberry flavours accented by acai notes, shaken with ice and strawberry pieces - a welcoming sweet spot of refreshment.</p>
+    <p class="font-bold p-2">₹ 378.00</p>
+</div>
+<div class="w-4/10 shadow-gray-900 shadow-lg   rounded-lg ml-28  ">
+  <div class="h-48">
+  <img class="rounded-t-lg  h-full w-full " src="Image/114038.webp" alt="">
+  </div>
+  <div class="ml-3 mt-3">
+  <svg width="16" height="16" style="margin-left: 10p;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="0.5" width="15" height="15" style="margin-left: 10px;" rx="1.5" stroke="#00754A"/>
+    <circle cx="8" cy="8" r="4" style="margin-left: 10px; " fill="#00754A"/>
+    </svg>
+  </div>
+    <h2 class="font-bold mt-3 p-2 ">Strawberry Acai Lemonade</h2>
+    <p class="text-xs text-gray-400 p-2">TALL(354 ML) .88 kcal</p>
+    <p class="text-xs text-gray-400 p-2 " >Sweet strawberry flavours accented by acai notes, shaken with ice and strawberry pieces - a welcoming sweet spot of refreshment.</p>
+    <p class="font-bold p-2">₹ 378.00</p>
+</div>
+<div class="w-4/10 shadow-gray-900 shadow-lg  rounded-lg ml-24  ">
+  <div class="h-48">
+  <img class="rounded-t-lg  h-full w-full " src="Image/114038.webp" alt="">
+  </div>
+  <div class="ml-3 mt-3  ">
+  <svg width="16" height="16" style="margin-left: 10p;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="0.5" width="15" height="15" style="margin-left: 10px;" rx="1.5" stroke="#00754A"/>
+    <circle cx="8" cy="8" r="4" style="margin-left: 10px; " fill="#00754A"/>
+    </svg>
+  </div>
+    <h2 class="font-bold mt-3 p-2 ">Strawberry Acai Lemonade</h2>
+    <p class="text-xs text-gray-400 p-1">TALL(354 ML) .88 kcal</p>
+    <p class="text-xs text-gray-400 p-2 " >Sweet strawberry flavours accented by acai notes, shaken with ice and strawberry pieces - a welcoming sweet spot of refreshment.</p>
+    <p class="font-bold p-2">₹ 378.00</p>
+</div>
+</div>
+
+<div class="bg-zinc-300 p-6 mt-10">
+ <div class="w-full h-96 bg-center bg-cover bg-no-repeat  rounded-lg "
+  style="background-image: url(Image/coffee\ culture.jpg);">
+  <div class="mt-32">
+<p class=" text-white font-bold text-2xl mt-40 ml-5  pt-6">Celebrating Sumatra Coffee And Gender Diversity At  Starbucks</p>
+<p class=" text-white   mt-10  ml-5 ">Meet The Resilint Women Behind Sumatra Coffee Farming</p>
+<div class="mt-14 ml-5">
+<a class="bg-white px-8 font-bold py-2 rounded-lg" href="">Learn More</a>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full h-full bg-green-950  p-10">
+<div class="flex justify-around">
+  <div >
+    <img src="favicon.png" alt="" class="bg-white rounded-full mt-5">
+  </div>
+  <div>
+    <ul class="text-white list-none pt-6 ">
+      <li class="font-bold text-2xl pt-2"> <a href="">About Us</a> </li>
+      <li class="hover:text-gray-700 pt-2"> <a href="">Coffee house</a></li>
+      <li class="hover:text-gray-700 pt-2"> <a href="">Our Company</a></li>
+      <li class="hover:text-gray-700 pt-2"> <a href="">Our Heritage</a></li>
+    </ul>
+  </div>
+  <div>
+    <ul class="text-white list-none pt-6 ">
+      <li class="font-bold text-2xl"> <a href="">Responsibility</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Community</a></li>
+      <li class="pt-2 hover:text-gray-700"><a href="">Ethical Sourcing</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Environmental Stewardship</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Diversity</a></li>
+    </ul>
+  </div>
+  <div>
+    <ul class="text-white list-none pt-6  ">
+      <li class="font-bold text-2xl"> <a href="">Quick Links</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Privacy Policy</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Starbucks Rewards Day Offer</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Delivery</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Season's Gifting</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Careers</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">FAQs</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Terms and Conditions</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Starbucks India Mobile App Terms of Use</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Customer Service</a></li>
+      <li class="pt-2 hover:text-gray-700"> <a href="">Offer for Beverage Subscription at Starbucks.</a></li>
+    </ul>
+  </div>
+  <div>
+    <a href=""><h1 class="text-white font-bold text-2xl pt-6">SOCIAL MEDIA</h1></a>
+    <div class="flex mt-3">
+    <a class="px-2" href=""><img src="https://www.starbucks.in/assets/icon/instagram.svg" alt=""></a>
+   <a class="px-2" href=""> <img src="https://www.starbucks.in/assets/icon/facebook.svg" alt=""></a>
+   <a href=""> <img src="https://www.starbucks.in/assets/icon/twitter.svg" alt=""></a>
+  </div>
+  </div>
+  <div class="pt-6">
+    <a href=""><img src="appstoreiOS.png" alt="" class="pb-3 "></a>
+    <a href=""><img src="appstoreAndroid.png" alt=""></a>
+  </div>
+</div>
+<hr class="w-11/12 h-6  mt-10  ml-5">
+<div class="flex justify-between px-24 ">
+
+
+<div>
+  <p class="text-white text-sm  pr-16">Web Accessiblity  | Privacy Statement | Terms of Use  | Contact Us</p>
+</div>
+<div>
+  <p class="text-white text-sm">©️ 2024 Starbucks Coffee Company. All rights reserved.</p>
+</div>
+</div>
+</div>
+
+
+ 
+  </body>
+</html>
